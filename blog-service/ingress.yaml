@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: blog-service-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: blog-service-ip
+    networking.gke.io/managed-certificates: graphql-isling
+  labels:
+    app: blog-service
+spec:
+  backend:
+    serviceName: blog-service
+    servicePort: 80
